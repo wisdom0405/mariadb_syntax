@@ -139,3 +139,4 @@ select date_format(now(), '%Y');
 
 -- 오늘날짜
 SELECT now();
+
