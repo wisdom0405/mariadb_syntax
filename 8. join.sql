@@ -26,4 +26,24 @@ selecct p.title, a.email from post p inner join author a on a.id = p.author_id;
 select p.title, a.email, a.age from author a inner join post p on a.id = p.author_id where a.age >= 25;
 
 -- 2) 모든 글 목록 중에 글의 title과 저자가 있다면 email을 출력, 2024-05-01 이후에 만들어진 글만 출력
-select p.title, a.name, a.email from author a inner join post p on a.id = p.author_id where create_time > 2024-05-01;
+ select p.title, ifnull(a.email, '익명')as '저자' 
+    from post p left join author a 
+    on a.id = p.author_id 
+    where p.title is not null and p.created_time >= '2024-05-01';
+
+-- 프로그래머스 : 조건에맞는 도서와 저자 리스트 출력
+SELECT B.BOOK_ID, A.AUTHOR_NAME, 
+    DATE_FORMAT(B.PUBLISHED_DATE, '%Y-%m-%d') AS PUBLISHED_DATE
+    FROM BOOK B INNER JOIN AUTHOR A
+    ON B.AUTHOR_ID = A.AUTHOR_ID
+    WHERE B.CATEGORY = '경제'
+    ORDER BY B.PUBLISHED_DATE ASC;
+
+
+
+
+
+
+
+
+
