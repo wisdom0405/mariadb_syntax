@@ -16,4 +16,9 @@ sudo mariadb -u root -p
 git clone 레파지토리주소
 
 # dumpfile.sql을 board에 집어넣겠다.
-mysql -u root -p board < dumpfile.sql
+sudo mysql -u root -p board < dumpfile.sql
+
+use board;
+select * from author; # author 테이블 확인 가능
+
+
