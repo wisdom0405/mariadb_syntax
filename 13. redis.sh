@@ -22,7 +22,7 @@ keys *
 # key 추가
 # 일반 string 자료구조
 # key:value 값 세팅
-# key값은 중복되면 안됨 
+# key값은 중복되면 안됨 (중복하면 덮어쓰기가 되어버림) 
 SET key(키) value(값)
 set test_key1 test_value1
 
@@ -41,13 +41,13 @@ set user:email:1 "hongildong2@naver.com"
 set user:email:1 "hongildong2@naver.com" nx # nx를 붙이면 덮어씌워지지 않음(not exist일때만 set됨)
 
 # ex(만료시간-초단위) - ttl(time to live)
-set user:email:2 hong2@naver.com ex 20
+set user:email:2 hong2@naver.com ex 20 # ex : expire
 
 # 특정 key 삭제
 del user:email:1
 
 # 현재 DB에 모든 key값 삭제
-flushdb
+flushdb # flush : 싹 다 날라감
 
 # 좋아요 기능 구현
 select likes from posting where email = "ronaldo" for update; # 배타lock
