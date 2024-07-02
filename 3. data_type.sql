@@ -61,6 +61,7 @@ ALTER TABLE post add column created_time datetime;
 INSERT INTO author (id, name, created_time) VALUES (10, 'hi', '1999-01-01 12:11:11');
 INSERT INTO post (id, title, created_time) VALUES (5, 'hi', '1999-01-01 12:11:11');
 
+
 -- default옵션으로 시간 자동 생성
 ALTER TABLE author modify column created_time datetime default current_timestamp;
 INSERT INTO author (id, email, role) VALUES (11, 'hii@avc.com', 'user');
